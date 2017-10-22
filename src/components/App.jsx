@@ -1,15 +1,15 @@
-import React from 'react';
-import { Route, Switch } from 'react-router-dom';
-import LoginPage from './LoginPage';
-import UserPage from './UserPage';
-import NotFound from './NotFound';
+import React, { Component } from 'react';
 
-const App = () => (
-  <Switch>
-    <Route path="/" exact component={LoginPage} />
-    <Route path="/user/:userId" exact component={UserPage} />
-    <Route component={NotFound} />
-  </Switch>
-);
+import Header from './Header';
+
+class App extends Component {
+  render() {
+    return (
+      <div>
+        <Header />
+      </div>
+    );
+  }
+}
 
 export default App;
