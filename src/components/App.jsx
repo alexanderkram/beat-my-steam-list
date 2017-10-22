@@ -4,14 +4,12 @@ import LoginPage from './LoginPage';
 import UserPage from './UserPage';
 import NotFound from './NotFound';
 
-function App() {
-  return (
-    <Switch>
-      <Route path="/" exact component={LoginPage} />
-      <Route path="/user/:userId" exact component={UserPage} />
-      <Route component={NotFound} />
-    </Switch>
-  );
-}
+const App = () => (
+  <Switch>
+    <Route path="/" exact component={LoginPage} />
+    <Route path="/user/:userId" exact component={UserPage} />
+    <Route component={NotFound} />
+  </Switch>
+);
 
 export default App;

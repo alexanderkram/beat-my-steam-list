@@ -1,9 +1,11 @@
 import React from 'react';
+import Header from './Header';
 
-function UserPage() {
-  return (
-    <div>UserPage</div>
-  );
-}
+const UserPage = () => (
+  <div>
+    <Header />
+    <h2>UserPage</h2>
+  </div>
+);
 
 export default UserPage;
