@@ -19,12 +19,13 @@ class Search extends React.Component {
     steamApiUser.GetPlayerSummaries().done(user => {
       if (user) {
         this.props.addUser(user);
-      }
-    });
-
-    steamApiPlayer.GetOwnedGames().done(games => {
-      if (games) {
-        this.props.addGames(games);
+      
+        steamApiPlayer.GetOwnedGames().done(games => {
+          if (games) {
+            this.props.addGames(games);
+          }
+          this.props.goToUserPage();
+        });
       }
     });
   };
