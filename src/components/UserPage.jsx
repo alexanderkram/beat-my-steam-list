@@ -1,23 +1,35 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import Header from './Header';
 import Game from './Game';
 
-const UserPage = props => (
-  <div className="UserPage">
-    <Header />
-    <div className="UserPage__inner">
-      <img src={props.user.avatar} alt={props.user.name} />
-      <h2>Your Account: {props.user.name}</h2>
-      <p>URL: {props.user.url}</p>
-      {Object
-        .keys(props.user.games)
-        .map(key => (
-          <Game key={props.user.games[key].appId} details={props.user.games[key]} />
-        ))
-      }
+const UserPage = (props) => {
+  const {
+    avatar, name, url, games,
+  } = props.user;
+
+  return (
+    <div className="UserPage">
+      <Header />
+      <div className="UserPage__inner">
+        <img src={avatar} alt={name} />
+        <h2>Your Account: {name}</h2>
+        <p>URL: {url}</p>
+        {Object.keys(games).map(key => (
+          <Game key={games[key].appId} details={games[key]} />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
+
+UserPage.propTypes = {
+  user: PropTypes.shape({
+    avatar: PropTypes.string,
+    name: PropTypes.string.isRequired,
+    games: PropTypes.isRequired,
+  }).isRequired,
+};
 
 export default UserPage;

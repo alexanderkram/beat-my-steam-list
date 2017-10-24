@@ -6,7 +6,7 @@ class SearchForm extends React.Component {
     searchUser: PropTypes.func.isRequired,
   };
 
-  handleSubmit = event => {
+  handleSubmit = (event) => {
     const userId = this.uid.value;
     const { searchUser } = this.props;
 
@@ -19,12 +19,12 @@ class SearchForm extends React.Component {
 
   render() {
     return (
-      <form 
+      <form
         className="SearchForm"
         ref={(input) => { this.searchForm = input; }}
         onSubmit={e => this.handleSubmit(e)}
       >
-        <input 
+        <input
           className="SearchForm__uid"
           ref={(input) => { this.uid = input; }}
           type="text"
